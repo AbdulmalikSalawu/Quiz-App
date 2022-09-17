@@ -2,19 +2,6 @@ var allQuestions = []
 if(localStorage.quizQuestions){
     allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
 }
-const countDown =()=>{
-    let countedSecs = secs.value;
-    countedSecs-- ;
-    secs.value =  countedSecs
-    myTimeout = setTimeout(countDown, 1000)
-    if(countedSecs==0){
-        gameOver.innerHTML = "Time Up"
-        gameOver.style.color = "red"
-        secs.value = "00"
-        secs.style.color = "red"
-        clearInterval(myTimeout)
-    }
-}
 const saveQuestion = ()=>{
     var questionObject = {
         myQuestion: Question.value,
@@ -33,7 +20,21 @@ const checkQuestion = ()=>{
     allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
     gameOver.innerHTML = "Goodluck 😎"
     gameOver.style.color = "green"
-    countdown
+    var countDown =()=>{
+        let countedSecs = secs.value;
+        countedSecs-- ;
+        secs.value =  countedSecs
+        myTimeout = setTimeout(countDown, 1000)
+        if(countedSecs==0){
+            gameOver.innerHTML = "Time Up"
+            gameOver.style.color = "red"
+            secs.value = "00"
+            secs.style.color = "red"
+            clearInterval(myTimeout)
+            location.reload()
+        }
+    }
+    countDown()
     allQuestions.map((_, ind)=>{
     questionShow.innerHTML = `${allQuestions[0].myQuestion}`
     disp.innerHTML = `
@@ -60,9 +61,23 @@ function optB() {
 function optC(){
     green.innerHTML = "CORRECT"
     green.style.background = "green"
-
+    var countDown2 =()=>{
+        secs.value = 16
+        let countedSecs = secs.value;
+        countedSecs-- ;
+        secs.value =  countedSecs
+        myTimeout = setTimeout(countDown, 1000)
+        if(countedSecs==0){
+            gameOver.innerHTML = "Time Up"
+            gameOver.style.color = "red"
+            secs.value = "00"
+            secs.style.color = "red"
+            clearInterval(myTimeout)
+            location.reload()
+        }
+    }
     setTimeout(() => {
-        //countDown()
+        countDown2()
         questionShow.innerHTML = `${allQuestions[1].myQuestion}`
         disp.innerHTML = `
             A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC2()"><p id="green">${allQuestions[1].firstOption}</p></button>
