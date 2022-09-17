@@ -2,6 +2,23 @@ var allQuestions = []
 if(localStorage.quizQuestions){
     allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
 }
+var countDown =()=>{
+    let countedSecs = secs.value;
+    countedSecs-- ;
+    secs.value =  countedSecs
+    myTimeout = setTimeout(countDown, 1000)
+    if(countedSecs==0){
+        gameOver.innerHTML = "Time Up"
+        gameOver.style.color = "red"
+        secs.value = "00"
+        secs.style.color = "red"
+        clearInterval(myTimeout)
+        setTimeout(() => {
+            location.reload()
+        }, timeout);
+    }
+}
+//CABCAB...
 const saveQuestion = ()=>{
     var questionObject = {
         myQuestion: Question.value,
@@ -20,20 +37,6 @@ const checkQuestion = ()=>{
     allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
     gameOver.innerHTML = "Goodluck 😎"
     gameOver.style.color = "green"
-    var countDown =()=>{
-        let countedSecs = secs.value;
-        countedSecs-- ;
-        secs.value =  countedSecs
-        myTimeout = setTimeout(countDown, 1000)
-        if(countedSecs==0){
-            gameOver.innerHTML = "Time Up"
-            gameOver.style.color = "red"
-            secs.value = "00"
-            secs.style.color = "red"
-            clearInterval(myTimeout)
-            location.reload()
-        }
-    }
     countDown()
     allQuestions.map((_, ind)=>{
     questionShow.innerHTML = `${allQuestions[0].myQuestion}`
@@ -51,62 +54,60 @@ function optA(){
     blue.style.background = "red"
     gameOver.innerHTML = "GAME OVER😪" 
     gameOver.style.color = "red"
+    setTimeout(() => {
+        location.reload()
+    }, 1000);
 }
 function optB() {
     red.innerHTML = "WRONG"
     red.style.background = "red"
     gameOver.innerHTML = "GAME OVER😪"
     gameOver.style.color = "red"
+    setTimeout(() => {
+        location.reload()
+    }, 1000);
 }
 function optC(){
     green.innerHTML = "CORRECT"
     green.style.background = "green"
-    var countDown2 =()=>{
-        secs.value = 16
-        let countedSecs = secs.value;
-        countedSecs-- ;
-        secs.value =  countedSecs
-        myTimeout = setTimeout(countDown, 1000)
-        if(countedSecs==0){
-            gameOver.innerHTML = "Time Up"
-            gameOver.style.color = "red"
-            secs.value = "00"
-            secs.style.color = "red"
-            clearInterval(myTimeout)
-            location.reload()
-        }
+    var countDown =()=>{
+        secs.value = 15
     }
     setTimeout(() => {
-        countDown2()
         questionShow.innerHTML = `${allQuestions[1].myQuestion}`
         disp.innerHTML = `
-            A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC2()"><p id="green">${allQuestions[1].firstOption}</p></button>
-            B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[1].secondOption}</p></button>
-            C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[1].thirdOption}</p></button>
-            D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[1].fourthOption}</p></button>
-            ` 
-        }, 1000);
-        // optA()
-        // optB()
-        // optD()
+        A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC2()"><p id="green">${allQuestions[1].firstOption}</p></button>
+        B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[1].secondOption}</p></button>
+        C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[1].thirdOption}</p></button>
+        D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[1].fourthOption}</p></button>
+        ` 
+        countDown()
+    }, 500);
     }
     function optC2(){
         green.innerHTML = "CORRECT"
         green.style.background = "green"
+        var countDown =()=>{
+            secs.value = 15
+        }
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[2].myQuestion}`
             disp.innerHTML = `
-                A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[2].firstOption}</p></button>
-                B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC3()"><p id="green">${allQuestions[2].secondOption}</p></button>
-                C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[2].thirdOption}</p></button>
-                D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[2].fourthOption}</p></button>
-                    `
-                }, 1000);
+            A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[2].firstOption}</p></button>
+            B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC3()"><p id="green">${allQuestions[2].secondOption}</p></button>
+            C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[2].thirdOption}</p></button>
+            D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[2].fourthOption}</p></button>
+            `
+            countDown()
+        }, 500);
             }
 
     function optC3(){
         green.innerHTML = "CORRECT"
         green.style.background = "green"
+        var countDown =()=>{
+            secs.value = 15
+        }
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[3].myQuestion}`
             disp.innerHTML = `
@@ -115,12 +116,16 @@ function optC(){
                 C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC4()"><p id="green">${allQuestions[3].thirdOption}</p></button>
                 D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[3].fourthOption}</p></button>
                     `
+                countDown()
                 }, 1000);
             }
 
     function optC4(){
         green.innerHTML = "CORRECT"
         green.style.background = "green"
+        var countDown =()=>{
+            secs.value = 15
+        }
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[4].myQuestion}`
             disp.innerHTML = `
@@ -129,12 +134,16 @@ function optC(){
                 C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[4].thirdOption}</p></button>
                 D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[4].fourthOption}</p></button>
                     `
+                countDown()
                 }, 1000);
             }
     
     function optC5(){
         green.innerHTML = "CORRECT"
         green.style.background = "green"
+        var countDown =()=>{
+            secs.value = 15
+        }
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[5].myQuestion}`
             disp.innerHTML = `
@@ -143,6 +152,7 @@ function optC(){
                 C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="red">${allQuestions[5].thirdOption}</p></button>
                 D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[5].fourthOption}</p></button>
                     `
+                countDown()
                  }, 1000);
             }
 
@@ -161,4 +171,7 @@ function optD(){
     yellow.style.background = "red"
     gameOver.innerHTML = "GAME OVER😪"
     gameOver.style.color = "red"
+    setTimeout(() => {
+        location.reload()
+    }, 1000);
 }
