@@ -82,10 +82,10 @@ function optC(){
     setTimeout(() => {
         questionShow.innerHTML = `${allQuestions[1].myQuestion}`
         disp.innerHTML = `
-        A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC2()"><p id="green">${allQuestions[1].firstOption}</p></button>
-        B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[1].secondOption}</p></button>
-        C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[1].thirdOption}</p></button>
-        D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[1].fourthOption}</p></button>
+        A. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optC2()"><p id="green">${allQuestions[1].firstOption}</p></button>
+        B. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[1].secondOption}</p></button>
+        C. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[1].thirdOption}</p></button>
+        D. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[1].fourthOption}</p></button>
         ` 
         
         countDown()
@@ -120,10 +120,10 @@ function optC(){
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[3].myQuestion}`
             disp.innerHTML = `
-                A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[3].firstOption}</p></button>
-                B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[3].secondOption}</p></button>
-                C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC4()"><p id="green">${allQuestions[3].thirdOption}</p></button>
-                D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[3].fourthOption}</p></button>
+                A. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[3].firstOption}</p></button>
+                B. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[3].secondOption}</p></button>
+                C. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optC4()"><p id="green">${allQuestions[3].thirdOption}</p></button>
+                D. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[3].fourthOption}</p></button>
                     `
                 countDown()
                 }, 1000);
@@ -139,10 +139,10 @@ function optC(){
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[4].myQuestion}`
             disp.innerHTML = `
-                A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC5()"><p id="green">${allQuestions[4].firstOption}</p></button>
-                B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[4].secondOption}</p></button>
-                C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[4].thirdOption}</p></button>
-                D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[4].fourthOption}</p></button>
+                A. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optC5()"><p id="green">${allQuestions[4].firstOption}</p></button>
+                B. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[4].secondOption}</p></button>
+                C. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[4].thirdOption}</p></button>
+                D. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[4].fourthOption}</p></button>
                     `
                 countDown()
                 }, 1000);
