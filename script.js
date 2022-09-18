@@ -15,10 +15,12 @@ var countDown =()=>{
         clearInterval(myTimeout)
         setTimeout(() => {
             location.reload()
-        }, timeout);
+        }, 1100);
     }
 }
+var award = 5000
 //CABCAB...
+// price increments!!
 const saveQuestion = ()=>{
     var questionObject = {
         myQuestion: Question.value,
@@ -56,7 +58,7 @@ function optA(){
     gameOver.style.color = "red"
     setTimeout(() => {
         location.reload()
-    }, 1000);
+    }, 1100);
 }
 function optB() {
     red.innerHTML = "WRONG"
@@ -65,9 +67,10 @@ function optB() {
     gameOver.style.color = "red"
     setTimeout(() => {
         location.reload()
-    }, 1000);
+    }, 1100);
 }
 function optC(){
+    myAward.innerHTML = `$ ${award}`
     green.innerHTML = "CORRECT"
     green.style.background = "green"
     var countDown =()=>{
@@ -81,10 +84,12 @@ function optC(){
         C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[1].thirdOption}</p></button>
         D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[1].fourthOption}</p></button>
         ` 
+        
         countDown()
     }, 500);
     }
     function optC2(){
+        myAward.innerHTML = `$ ${award+5000}`
         green.innerHTML = "CORRECT"
         green.style.background = "green"
         var countDown =()=>{
@@ -103,6 +108,7 @@ function optC(){
             }
 
     function optC3(){
+        myAward.innerHTML = `$ ${award+15000}`
         green.innerHTML = "CORRECT"
         green.style.background = "green"
         var countDown =()=>{
@@ -121,6 +127,7 @@ function optC(){
             }
 
     function optC4(){
+        myAward.innerHTML = `$ ${award+45000}`
         green.innerHTML = "CORRECT"
         green.style.background = "green"
         var countDown =()=>{
@@ -139,6 +146,7 @@ function optC(){
             }
     
     function optC5(){
+        myAward.innerHTML = `$ ${award+70000}`
         green.innerHTML = "CORRECT"
         green.style.background = "green"
         var countDown =()=>{
@@ -157,11 +165,12 @@ function optC(){
             }
 
     function optC6(){
+        myAward.innerHTML = `$ ${award+95000}`
         setTimeout(() => {
             gameOver.innerHTML = ""
             questionShow.innerHTML = ""
             disp.innerHTML = `
-                <h3>CONGRATULATIONS!!🥇🎉 You won 1million Naira</h3>
+                <h3>CONGRATULATIONS!!🥇🎉 You won 100,000 Naira</h3>
             `
         }, 500);
     }
@@ -173,5 +182,5 @@ function optD(){
     gameOver.style.color = "red"
     setTimeout(() => {
         location.reload()
-    }, 1000);
+    }, 1100);
 }
