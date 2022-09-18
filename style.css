@@ -3,16 +3,29 @@ body{
     background-size: cover;
 }
 .rounded-pill{
-    margin-top: 15% !important;
+    margin-top: 14.1% !important;
     background: rgba(245, 241, 241, 0.06);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10.4px);
+    backdrop-filter: blur(10.9px);
     -webkit-backdrop-filter: blur(1.9px);
     border: 1px solid rgba(255, 255, 255, 0.26); 
 }
-.questionshow, .hello{
+.rounded-pill:hover{
+    background-color: rgba(0, 0, 0, 10%);
+}
+.shadow{
+    background-color: rgba(1, 26, 1, 90%);
+    position: relative;
+    top: 170px !important;
     font-family: 'Times New Roman', Times, serif;
+}
+.questionshow, .hello, #myAward{
+    font-family: 'Times New Roman', Times, serif;
+}
+.py-4{
+    position: relative;
+    bottom: 60px;
 }
 #disp{
     font-family: cursive;
@@ -32,6 +45,30 @@ body{
 .btn-black:hover{
     background-color: rgba(0, 0, 0, 80%);
     animation-name: scale;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+.border-0{
+    background: none;
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+img{
+    position: relative;
+    bottom: 370px;
+    width: 160px;
+    height: 100px;
+}
+@keyframes scale2 {
+    from {
+        transform: scale(75%);
+    }
+
+    to {
+        transform: scale(100%);
+    }}
+img:hover{
+    animation-name: scale2;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }

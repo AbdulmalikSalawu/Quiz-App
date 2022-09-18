@@ -89,7 +89,7 @@ function optC(){
         ` 
         
         countDown()
-    }, 500);
+    }, 1000);
     }
     function optC2(){
         myAward.innerHTML = `$ ${award+5000}`
@@ -101,13 +101,13 @@ function optC(){
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[2].myQuestion}`
             disp.innerHTML = `
-            A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[2].firstOption}</p></button>
-            B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC3()"><p id="green">${allQuestions[2].secondOption}</p></button>
-            C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[2].thirdOption}</p></button>
-            D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[2].fourthOption}</p></button>
+            A. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[2].firstOption}</p></button>
+            B. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optC3()"><p id="green">${allQuestions[2].secondOption}</p></button>
+            C. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[2].thirdOption}</p></button>
+            D. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[2].fourthOption}</p></button>
             `
             countDown()
-        }, 500);
+        }, 1000);
             }
 
     function optC3(){
@@ -158,10 +158,10 @@ function optC(){
         setTimeout(() => {
             questionShow.innerHTML = `${allQuestions[5].myQuestion}`
             disp.innerHTML = `
-                A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="blue">${allQuestions[5].firstOption}</p></button>
-                B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC6()"><p id="green">${allQuestions[5].secondOption}</p></button>
-                C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="red">${allQuestions[5].thirdOption}</p></button>
-                D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[5].fourthOption}</p></button>
+                A. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optB()"><p id="blue">${allQuestions[5].firstOption}</p></button>
+                B. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optC6()"><p id="green">${allQuestions[5].secondOption}</p></button>
+                C. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optA()"><p id="red">${allQuestions[5].thirdOption}</p></button>
+                D. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[5].fourthOption}</p></button>
                     `
                 countDown()
                  }, 1000);
@@ -175,7 +175,7 @@ function optC(){
             disp.innerHTML = `
                 <h3>CONGRATULATIONS!!🥇🎉 You won 100,000 Naira</h3>
             `
-        }, 500);
+        }, 1000);
     }
 
 function optD(){
