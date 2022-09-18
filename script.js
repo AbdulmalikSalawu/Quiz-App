@@ -20,7 +20,10 @@ var countDown =()=>{
 }
 var award = 5000
 //CABCAB...
-// price increments!!
+const fifty=()=>{
+    blue.innerHTML = "lorem"
+    red.innerHTML = "lorem"
+}
 const saveQuestion = ()=>{
     var questionObject = {
         myQuestion: Question.value,
