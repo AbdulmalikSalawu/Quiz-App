@@ -46,10 +46,10 @@ const checkQuestion = ()=>{
     allQuestions.map((_, ind)=>{
     questionShow.innerHTML = `${allQuestions[0].myQuestion}`
     disp.innerHTML = `
-        A. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[0].firstOption}</p></button>
-        B. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[0].secondOption}</p></button>
-        C. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optC()"><p id="green">${allQuestions[0].thirdOption}</p></button>
-        D. <button class ="btn btn-info text-black fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[0].fourthOption}</p></button>
+        A. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${allQuestions[0].firstOption}</p></button>
+        B. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${allQuestions[0].secondOption}</p></button>
+        C. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optC()"><p id="green">${allQuestions[0].thirdOption}</p></button>
+        D. <button class ="btn btn-black text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${allQuestions[0].fourthOption}</p></button>
         `
     })
 }
