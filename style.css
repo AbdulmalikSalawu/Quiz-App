@@ -78,18 +78,32 @@ img:hover{
 }
 @media screen and (max-width: 600px) {
     .shadow{
-        position: relative;
         top: 0px !important;
-        font-size: 20px !important;
-        width: 150px !important;
+        font-size: 28px !important;
+        width: 65% !important;
     }
-    input{
+    input {
         width: 100px !important;
     }
     #gameOver{
-        margin-top: -10px !important;
+        margin-top: 1px !important;
+        margin-right: 82px !important;
     }
     #myAward{
-        
+        margin-top: 70px;
+        margin-right:19% !important;
+    }
+    .rounded-pill{
+        width: 94%;
+        border-radius: 17px !important;
+        margin-top: 22% !important;
+        backdrop-filter: blur(12.9px);
+    }
+    .rounded-pill button{
+        width: 90.4%;
+    }
+    .rounded-pill div{
+        color: white !important;
+        font-weight: normal !important;
     }
 }
