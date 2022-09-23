@@ -1,6 +1,7 @@
 body{
     background-image: url(game-background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 .rounded-pill{
     margin-top: 12% !important;
@@ -77,10 +78,13 @@ img:hover{
     animation-iteration-count: infinite;
 }
 @media screen and (max-width: 600px) {
+    body{
+        height: 900px;
+    }
     .shadow{
         top: 0px !important;
         font-size: 28px !important;
-        width: 65% !important;
+        width: 70% !important;
     }
     input {
         width: 100px !important;
@@ -90,20 +94,62 @@ img:hover{
         margin-right: 82px !important;
     }
     #myAward{
-        margin-top: 70px;
-        margin-right:19% !important;
+        margin-top: 30px;
+        margin-right:-6% !important;
+        background-color: rgba(0, 0, 0, 68%);
     }
     .rounded-pill{
-        width: 94%;
+        width: 94.1%;
         border-radius: 17px !important;
-        margin-top: 22% !important;
+        margin-top: 17% !important;
         backdrop-filter: blur(12.9px);
     }
     .rounded-pill button{
         width: 90.4%;
+        font-size: 20px !important;
     }
     .rounded-pill div{
         color: white !important;
         font-weight: normal !important;
+    }
+    .questionshow{
+        font-size: 22px !important;
+    }
+    img{
+        position: relative;
+        bottom: 600px;
+        right: 80px;
+        height: 55px;
+        width: 108px;
+    }
+}
+@media screen and (max-width: 375px) {
+    body{
+        height: 670px;
+    }
+    input{
+        font-size: 28px !important;
+    }
+    .shadow{
+        font-size: 25px !important;
+        width: 60% !important;
+    }
+    #gameOver{
+        font-size: 18px !important;
+        
+    }
+    #myAward{
+        font-size: 20px !important;
+        margin-top: 0;
+    }
+    .rounded-pill{
+        width: 96%;
+        max-height: 460px;
+        margin-top: 20% !important;
+    }
+    img{
+        bottom: 565px;
+        height: 35px;
+        width: 87px;
     }
 }

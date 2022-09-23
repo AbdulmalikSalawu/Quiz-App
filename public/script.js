@@ -46,6 +46,7 @@ const checkQuestion = ()=>{
     allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
     gameOver.innerHTML = "Goodluck 😎"
     gameOver.style.color = "green"
+    startQuiz.innerHTML = "End Quiz"
     countDown()
     allQuestions.map((_, ind)=>{
     questionShow.innerHTML = `${allQuestions[0].myQuestion}`
@@ -61,20 +62,22 @@ const checkQuestion = ()=>{
 function optA(){
     blue.innerHTML = "WRONG"
     blue.style.background = "red"
+    wrongSong.play()
     gameOver.innerHTML = "GAME OVER😪" 
     gameOver.style.color = "red"
     setTimeout(() => {
         location.reload()
-    }, 1100);
+    }, 2100);
 }
 function optB() {
     red.innerHTML = "WRONG"
     red.style.background = "red"
+    wrongSong.play()
     gameOver.innerHTML = "GAME OVER😪"
     gameOver.style.color = "red"
     setTimeout(() => {
         location.reload()
-    }, 1100);
+    }, 2100);
 }
 function optC(){
     myAward.innerHTML = `$ ${award}`
@@ -191,9 +194,10 @@ function optC(){
 function optD(){
     yellow.innerHTML = "WRONG"
     yellow.style.background = "red"
+    wrongSong.play()
     gameOver.innerHTML = "GAME OVER😪"
     gameOver.style.color = "red"
     setTimeout(() => {
         location.reload()
-    }, 1100);
+    }, 2100);
 }
