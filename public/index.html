@@ -1,89 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>wwtbam</title>
+      </head>
+      <body>
 
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.10.0/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.10.0/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.10.0/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+        <center>
+          <h2 class="mt-2">Who wants to be a millionaire</h2>
+          <input class="form-control w-50 fs-2 text-center border border-success mt-3" type="text" placeholder="type your question" id="Question"><br>
+          <p><span class="me-3">Option A </span><input class="form-control w-25 border border-info" type="text" id="optionA" ></p>
+          <p><span class="me-3">Option B </span><input class="form-control w-25 border border-info" type="text" id="optionB" >
+          <p><span class="me-3">Option C </span><input class="form-control w-25 border border-info" type="text" id="optionC">
+          <p><span class="me-3">Option D </span><input class="form-control w-25 border border-info" type="text" id="optionD">
+          <button class="btn btn-info mt-4 w-25 fw-bold fs-3" id="saveQuestion" onclick="saveQuestion()">Save Question</button>
+          <br><br>
+  
+          <button class="btn btn-success p-3 fs-5"><a class="text-white text-decoration-none" href="questionpage.html">Start QUIZ</a></button>
+          
+      </center>
+        
+        <script type="module">
+          // Import the functions you need from the SDKs you need
+          import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+          import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+          import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+          // TODO: Add SDKs for Firebase products that you want to use
+          // https://firebase.google.com/docs/web/setup#available-libraries
+        
+          // Your web app's Firebase configuration
+          const firebaseConfig = {
+            apiKey: "AIzaSyDg5oSjUCnMmdDnQq77-MzgYs0sMxnn4iI",
+            authDomain: "wwtbam-9b67f.firebaseapp.com",
+            databaseURL: "https://wwtbam-9b67f-default-rtdb.firebaseio.com",
+            projectId: "wwtbam-9b67f",
+            storageBucket: "wwtbam-9b67f.appspot.com",
+            messagingSenderId: "494770866703",
+            appId: "1:494770866703:web:fb82388dd4d024ad2af17a"
+          };
+        
+          // Initialize Firebase
+          const app = initializeApp(firebaseConfig);
+          const auth = getAuth();
+          const db = getDatabase();
 
-    <style media="screen">
-      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
-      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
-      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
-      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
-      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
-      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
-      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
-      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
-      @media (max-width: 600px) {
-        body, #message { margin-top: 0; background: white; box-shadow: none; }
-        body { border-top: 16px solid #ffa100; }
-      }
-    </style>
-  </head>
-  <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+          let questionid = 0;
+          let questionArray = [];
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const loadEl = document.querySelector('#load');
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.firestore().doc('/foo/bar').get().then(() => { });
-        // firebase.functions().httpsCallable('yourFunction')().then(() => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        // firebase.analytics(); // call to activate
-        // firebase.analytics().logEvent('tutorial_completed');
-        // firebase.performance(); // call to activate
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+          let questionDb = ref(db,"quizquestions")
+          onValue(questionDb, (snapshot)=>{
+            let questionArray = snapshot.val();
+            if(questionArray){
+              questionid = questionArray.length
+            }
+            else{
+              questionid = 0;
+            }
+          })
 
-        try {
-          let app = firebase.app();
-          let features = [
-            'auth', 
-            'database', 
-            'firestore',
-            'functions',
-            'messaging', 
-            'storage', 
-            'analytics', 
-            'remoteConfig',
-            'performance',
-          ].filter(feature => typeof app[feature] === 'function');
-          loadEl.textContent = `Firebase SDK loaded with ${features.join(', ')}`;
-        } catch (e) {
-          console.error(e);
-          loadEl.textContent = 'Error loading the Firebase SDK, check the console.';
-        }
-      });
-    </script>
-  </body>
-</html>
+          document.getElementById("saveQuestion").addEventListener("click", function(){
+            let mainQuestion = Question.value;
+            let firstOption = optionA.value;
+            let secondOption = optionB.value;
+            let thirdOption = optionC.value;
+            let fourthOPtion = optionD.value;
+
+            let questionObj = {mainQuestion, firstOption, secondOption, thirdOption, fourthOPtion};
+            let dbRef = ref(db, `quizquestions/${questionid}`)
+            set (dbRef, itemObj);
+          })
+        </script>
+
+      </body>
+  </html>
