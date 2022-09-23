@@ -2,6 +2,20 @@
     background-image: url('welcome-background-mobile.jpg');
     background-size: cover;
 }
+.hello, #linkto{
+    font-family: 'Times New Roman', Times, serif;
+}
+#linkto{
+    background-color: rgb(31, 2, 2);
+    padding: 10px;
+    border: thin solid white !important;
+    border-radius: 10px;
+    margin-top: 20% !important;
+}
+#linkto:hover{
+    background-color: rgb(1, 38, 1);
+    color: white;
+}
 body{
     background-image: url(game-background.jpg);
     background-size: cover;
@@ -84,6 +98,15 @@ img:hover{
 @media screen and (max-width: 600px) {
     body{
         height: 900px;
+    }
+    .hello{
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        font-size: 40px;
+        margin-top: 20% !important;
+    }
+    #linkto{
+        margin-top: 30% !important;
     }
     .shadow{
         top: 0px !important;
