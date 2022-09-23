@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <input type="text" placeholder="secs" id="secs"  value="15" class="m-auto border-0 d-block mt-2 text-center text-whit col-1">
-    <button  class="btn  w-25 mt-3 fs-3 fw-bold text-white shadow m-auto d-block " id="startQuiz" onclick="checkQuestion()" >START QUIZ</button>
+    <button  class="btn  w-25 mt-3 fs-3 fw-bold text-white shadow m-auto d-block " id="startQuiz"  >START QUIZ</button>
     <p id="gameOver" class="text-end me-5 pe-5 mt-4 fs-3"></p>
     <p class="text-end me-5 mb-5 pe-5 fw-bold text-white fs-1" id="myAward">PRIZE:  $0.00</p>
     <div class="text-center mt-2 bg-blac col-7 d-block m-auto rounded-pill shadow-lg py-4">
@@ -20,6 +21,64 @@
     </div>
     <img onclick="fifty()" class="ms-5 ps-5" src="50-50.png" alt="">
 
-    <script src="script.js"></script>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+        import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyDg5oSjUCnMmdDnQq77-MzgYs0sMxnn4iI",
+          authDomain: "wwtbam-9b67f.firebaseapp.com",
+          databaseURL: "https://wwtbam-9b67f-default-rtdb.firebaseio.com",
+          projectId: "wwtbam-9b67f",
+          storageBucket: "wwtbam-9b67f.appspot.com",
+          messagingSenderId: "494770866703",
+          appId: "1:494770866703:web:fb82388dd4d024ad2af17a"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getDatabase();
+
+        let questionid = 0;
+        let questionArray = [];
+
+        let questionDb = ref(db,"quizquestions")
+        onValue(questionDb, (snapshot)=>{
+          let questionArray = snapshot.val();
+          if(questionArray){
+            questionid = questionArray.length
+            checkQuestion(questionArray)
+          }
+          else{
+            questionid = 0;
+          }
+        })
+
+    function checkQuestion(questionArray) {
+        disp.innerHTML = `
+        A. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${questionArray[0].firstOption}</p></button>
+        B. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${questionArray[0].secondOption}</p></button>
+        C. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optC()"><p id="green">${questionArray[0].thirdOption}</p></button>
+        D. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${questionArray[0].fourthOption}</p></button>
+        `
+        questionShow.innerHTML = `${questionArray[0].mainQuestion}`
+        gameOver.innerHTML = "Goodluck 😎"
+        gameOver.style.color = "green"
+        startQuiz.innerHTML = "End Quiz"
+        countDown()
+        questionArray.map((userquestions, index)=>{
+            questionShow.innerHTML = `${userquestions[0].mainQuestion}`
+            
+    })
+}
+
+        </script>
+    <!-- <script src="script.js"></script> -->
 </body>
 </html>
