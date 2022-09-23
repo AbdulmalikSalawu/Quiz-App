@@ -1,77 +1,15 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>wwtbam</title>
-      </head>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
-      <body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap-5.2.0-beta1-dist/css/bootstrap.css">
+  <title>Document</title>
+</head>
+<body id="welcomeimage">
+      <h2>Hello and Welcome to Who Wants to be a Millionaire</h2>
 
-        <center>
-          <h2 class="mt-2">Who wants to be a millionaire</h2>
-          <input class="form-control w-50 fs-2 text-center border border-success mt-3" type="text" placeholder="type your question" id="Question"><br>
-          <p><span class="me-3">Option A </span><input class="form-control w-25 border border-info" type="text" id="optionA" ></p>
-          <p><span class="me-3">Option B </span><input class="form-control w-25 border border-info" type="text" id="optionB" >
-          <p><span class="me-3">Option C </span><input class="form-control w-25 border border-info" type="text" id="optionC">
-          <p><span class="me-3">Option D </span><input class="form-control w-25 border border-info" type="text" id="optionD">
-          <button class="btn btn-info mt-4 w-25 fw-bold fs-3" id="saveQuestion" >Save Question</button>
-          <br><br>
-  
-          <button class="btn btn-success p-3 fs-5"><a class="text-white text-decoration-none" href="questionpage.html">Start QUIZ</a></button>
-          
-      </center>
-        
-        <script type="module">
-          // Import the functions you need from the SDKs you need
-          import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
-          import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
-          import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
-          // TODO: Add SDKs for Firebase products that you want to use
-          // https://firebase.google.com/docs/web/setup#available-libraries
-        
-          // Your web app's Firebase configuration
-          const firebaseConfig = {
-            apiKey: "AIzaSyDg5oSjUCnMmdDnQq77-MzgYs0sMxnn4iI",
-            authDomain: "wwtbam-9b67f.firebaseapp.com",
-            databaseURL: "https://wwtbam-9b67f-default-rtdb.firebaseio.com",
-            projectId: "wwtbam-9b67f",
-            storageBucket: "wwtbam-9b67f.appspot.com",
-            messagingSenderId: "494770866703",
-            appId: "1:494770866703:web:fb82388dd4d024ad2af17a"
-          };
-        
-          // Initialize Firebase
-          const app = initializeApp(firebaseConfig);
-          const auth = getAuth();
-          const db = getDatabase();
-
-          let questionid = 0;
-          let questionArray = [];
-
-          let questionDb = ref(db,"quizquestions")
-          onValue(questionDb, (snapshot)=>{
-            let questionArray = snapshot.val();
-            if(questionArray){
-              questionid = questionArray.length
-            }
-            else{
-              questionid = 0;
-            }
-          })
-
-          document.getElementById("saveQuestion").addEventListener("click", function(){
-            let mainQuestion = Question.value;
-            let firstOption = optionA.value;
-            let secondOption = optionB.value;
-            let thirdOption = optionC.value;
-            let fourthOption = optionD.value;
-
-            let questionObj = {mainQuestion, firstOption, secondOption, thirdOption, fourthOption};
-            let dbRef = ref(db, `quizquestions/${questionid}`)
-            set (dbRef, questionObj);
-          })
-        </script>
-
-      </body>
-  </html>
+      <button id="linkto">Go to the quiz page</button>
+</body>
+</html>

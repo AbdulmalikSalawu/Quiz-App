@@ -60,25 +60,7 @@
           }
         })
 
-    function checkQuestion(questionArray) {
-        disp.innerHTML = `
-        A. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${questionArray[0].firstOption}</p></button>
-        B. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${questionArray[0].secondOption}</p></button>
-        C. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optC()"><p id="green">${questionArray[0].thirdOption}</p></button>
-        D. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${questionArray[0].fourthOption}</p></button>
-        `
-        questionShow.innerHTML = `${questionArray[0].mainQuestion}`
-        gameOver.innerHTML = "Goodluck 😎"
-        gameOver.style.color = "green"
-        startQuiz.innerHTML = "End Quiz"
-        countDown()
-        questionArray.map((userquestions, index)=>{
-            questionShow.innerHTML = `${userquestions[0].mainQuestion}`
-            
-    })
-}
-
         </script>
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 </body>
 </html>

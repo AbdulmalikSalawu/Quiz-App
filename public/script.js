@@ -1,7 +1,3 @@
-// var allQuestions = []
-// if(localStorage.quizQuestions){
-//     allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
-// }
 var rightSong = new Audio("sound_right.mp3");
 var wrongSong = new Audio("sound_wrong.mp3");
 
@@ -27,35 +23,21 @@ const fifty=()=>{
     blue.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
     red.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
 }
-// const saveQuestion = ()=>{
-//     var questionObject = {
-//         myQuestion: Question.value,
-//         firstOption:optionA.value,
-//         secondOption:optionB.value,
-//         thirdOption:optionC.value,
-//         fourthOption:optionD.value 
-//     }
-//     if((firstOption=optionA.value) && (secondOption = optionB.value) && (thirdOption = optionC.value) && (fourthOption = optionD.value))
-//     {
-//         allQuestions.push(questionObject), 
-//         localStorage.setItem("quizQuestions", JSON.stringify(allQuestions))
-//         Question.value = "", optionA.value = "", optionB.value = "", optionC.value = "", optionD.value = ""
-//     }
-// }
+
 function checkQuestion(questionArray) {
-    // allQuestions = JSON.parse(localStorage.getItem("quizQuestions"))
-    gameOver.innerHTML = "Goodluck 😎"
-    gameOver.style.color = "green"
-    startQuiz.innerHTML = "End Quiz"
-    countDown()
-    questionArray.map((userquestions, index)=>{
-    questionShow.innerHTML = `${userquestions[0].mainQuestion}`
     disp.innerHTML = `
-        A. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${userquestions[0].firstOption}</p></button>
-        B. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${userquestions[0].secondOption}</p></button>
-        C. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optC()"><p id="green">${userquestions[0].thirdOption}</p></button>
-        D. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${userquestions[0].fourthOption}</p></button>
+        A. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optA()"><p id="blue">${questionArray[0].firstOption}</p></button>
+        B. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optB()"><p id="red">${questionArray[0].secondOption}</p></button>
+        C. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optC()"><p id="green">${questionArray[0].thirdOption}</p></button>
+        D. <button class ="btn btn-black mt-4 text-white fw-bold border-none fs-5" onclick="optD()"><p id="yellow">${questionArray[0].fourthOption}</p></button>
         `
+        questionShow.innerHTML = `${questionArray[0].mainQuestion}`
+        gameOver.innerHTML = "Goodluck 😎"
+        gameOver.style.color = "green"
+        startQuiz.innerHTML = "End Quiz"
+        countDown()
+        questionArray.map((userquestions, index)=>{
+    
     })
 }
 
