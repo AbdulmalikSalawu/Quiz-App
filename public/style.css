@@ -203,3 +203,22 @@ img:hover{
         width: 87px;
     }
 }
+@media screen and (min-width: 601px) and (max-width: 900px) {
+    .rounded-pill, #startQuiz, #myAward, img{
+        position: relative;
+    }
+    .rounded-pill{
+        top: 100px;
+        width: 90%;
+    }
+    #startQuiz{
+       top: 230px !important;
+    }
+    #myAward{
+        top: 180px;
+    }
+    img{
+        top: -180px;
+        height: 65px;
+    }
+}
