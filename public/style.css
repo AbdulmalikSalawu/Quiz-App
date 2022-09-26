@@ -11,13 +11,15 @@
 }
 ul{
     list-style-type: none;
-    font-family: cursive;
+    font-family: 'Times New Roman', Times, serif;
 }
 #gameOver{
     width:150px;
     height: 37px;
     padding-left: 10px;
-    border-radius: 10px;
+    /* border-radius: 10px; */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     margin: auto;
     font-family: Arial, Helvetica, sans-serif !important;
 }
@@ -29,7 +31,8 @@ ul{
     background-color: rgb(1, 31, 1);
     border-radius: 7px;
     margin-top: 27% !important;
-    border: thin solid white !important;
+    border: thin solid white !important; 
+    font-family: 'Times New Roman', Times, serif;
 }
 #linkto:hover{
     background-color: rgb(3, 46, 3) !important;
@@ -129,8 +132,22 @@ img:hover{
     #linkto{
         margin-top: 58% !important;
         width: 55%;
-        width: 200px;
+        width: 160px;
+        animation-name: quizpage;
+        animation-duration: 2.2s;
+        animation-iteration-count: infinite;
+        border-radius: 25px;
     }
+    @keyframes quizpage {
+        from {
+            transform: scale(75%);
+        }
+    
+        to {
+            transform: scale(115%);
+            background-color: rgb(14, 138, 138);
+            color: black !important;
+        }}
     .shadow{
         top: 0px !important;
         font-size: 28px !important;
@@ -140,8 +157,11 @@ img:hover{
         width: 100px !important;
     }
     #gameOver{
-        margin-top: 1px !important;
-        margin-right: 69px !important;
+        margin-top: 0px !important;
+        position: relative;
+        right: 20%;
+        padding-left: 6.5%;
+        height: 29px;
     }
     #myAward{
         margin-top: 30px;
@@ -186,6 +206,7 @@ img:hover{
     }
     #gameOver{
         font-size: 18px !important;
+        margin-right: 10% !important;
         
     }
     #myAward{

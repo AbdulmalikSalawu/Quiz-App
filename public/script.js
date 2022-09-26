@@ -2,28 +2,29 @@
 var rightSong = new Audio("sound_right.mp3");
 var wrongSong = new Audio("sound_wrong.mp3");
 
-var countDown =()=>{
-    let countedSecs = secs.value;
-    countedSecs-- ;
-    secs.value =  countedSecs
-    myTimeout = setTimeout(countDown, 1000)
-    if(countedSecs==0){
-        gameOver.innerHTML = "Time Up"
-        gameOver.style.color = "red"
-        secs.value = "00"
-        secs.style.color = "red"
-        clearInterval(myTimeout)
-        setTimeout(() => {
-            window.location.href = "index.html"
-        }, 1250);
-    }
-}
+// var countDown =()=>{
+//     let countedSecs = secs.value;
+//     countedSecs-- ;
+//     secs.value =  countedSecs
+//     myTimeout = setTimeout(countDown, 1000)
+//     if(countedSecs==0){
+//         gameOver.innerHTML = "Time Up"
+//         gameOver.style.color = "red"
+//         secs.value = "00"
+//         secs.style.color = "red"
+//         clearInterval(myTimeout)
+//         setTimeout(() => {
+//             window.location.href = "index.html"
+//         }, 2100);
+//     }
+// }
 
 var award = 5000
 //CABCAB...
 const fifty=()=>{
     blue.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
     red.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
+    fiftyfifty.innerHTML = `<img src = "50-50-used.png" alt = "">`
 }
 
 function checkQuestion(questionArray) {
