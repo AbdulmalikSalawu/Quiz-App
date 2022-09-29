@@ -1,6 +1,7 @@
 var rightSong = new Audio("sound_right.mp3");
 var wrongSong = new Audio("sound_wrong.mp3");
-
+var fiftySong = new Audio("50-50_sound.mp3");
+var mainSong = new Audio("mainsong.mp3")
 var countDown =()=>{
     let countedSecs = secs.value;
     countedSecs-- ;
@@ -11,14 +12,19 @@ var countDown =()=>{
         gameOver.style.color = "red"
         secs.value = "00"
         secs.style.color = "red"
+        wrongSong.play()
         clearInterval(myTimeout)
         setTimeout(() => {
             window.location.href = "index.html"
-        }, 3100);
+        }, 3700);
     }
+}
+const playSong =()=>{
+    mainSong.play()
 }
 var award = 5000
 const fifty=()=>{
+    fiftySong.play()
     blue.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
     red.innerHTML = "&nbsp &nbsp &nbsp &nbsp"
     fiftyfifty.innerHTML = `<img src = "50-50-used.png" alt = "">`
@@ -49,7 +55,7 @@ function optA(){
     gameOver.style.fontsize = "10px"
     setTimeout(() => {
         window.location.href = "index.html"
-    }, 3200);
+    }, 3300);
 }
 function optB() {
     red.innerHTML = "WRONG"
@@ -59,7 +65,7 @@ function optB() {
     gameOver.style.color = "red"
     setTimeout(() => {
         window.location.href = "index.html"
-    }, 3200);
+    }, 3300);
 }
 function optC(){
     myAward.innerHTML = `$ ${award}`
@@ -100,10 +106,9 @@ function optC(){
             `
             questionShow.innerHTML = `How many bones are there in the human body?`
             countDown()
-        }, 2000);
+        }, 2100);
             }
-
-    function optC3(){
+     function optC3(){
         myAward.innerHTML = `$ ${award+15000}`
         green.innerHTML = "CORRECT"
         green.style.background = "green"
@@ -120,7 +125,7 @@ function optC(){
             `
             questionShow.innerHTML = `The Statue of Liberty was given to the US by which country?`
                 countDown()
-                }, 2000);
+                }, 2100);
             }
     function optC4(){
         myAward.innerHTML = `$ ${award+45000}`
@@ -139,7 +144,7 @@ function optC(){
             `
             questionShow.innerHTML = `Which city name is present in every continent?`
                 countDown()
-                }, 1800);
+                }, 2100);
             }
     function optC5(){
         myAward.innerHTML = `$ ${award+70000}`
@@ -158,7 +163,7 @@ function optC(){
             `
             questionShow.innerHTML = `What animal is the black mamba?`
                 countDown()
-                 }, 1800);
+                 }, 2000);
             }
     function optC6(){
         myAward.innerHTML = `$ ${award+95000}`
@@ -177,20 +182,23 @@ function optC(){
             `
             questionShow.innerHTML = `Coprastastaphobia Is The Fear Of What?`
                 countDown()
-                 }, 1800);
+                 }, 2500);
             }
-
     function optC7(){
+        green.innerHTML = "CHAMPION!!"
+        green.style.background = "gold"
         rightSong.play()
         myAward.innerHTML = `$ ${award+195000}`
+        clearInterval(myTimeout)
         setTimeout(() => {
             gameOver.innerHTML = ""
             questionShow.innerHTML = ""
             disp.innerHTML = `
-                <h3>CONGRATULATIONS!!🥇🎉 You won 200,000 Naira</h3>
+                <h1>CONGRATULATIONS!!🥇🎉 You won 200,000 Naira</h1>
             `
-            disp.style.fontsize = "25px"
-        }, 1000);
+            disp.style.color = "gold"
+            disp.style.fontfamily = "Times New Roman', Times, serif"
+        }, 2000);
     }
 function optD(){
     yellow.innerHTML = "WRONG"
