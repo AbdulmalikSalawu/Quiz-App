@@ -3,15 +3,16 @@
     background-position: center;
     background-size: cover;
     height: 100vh;
-    overflow-y: hidden;
 }
 #questionbody{
     background-position: center;
     height: 100vh;
 }
-ul{
+ul, .rules{
     list-style-type: none;
     font-family: 'Times New Roman', Times, serif;
+    color: rgb(3, 65, 3);
+    font-size: 17px !important;
 }
 #gameOver{
     width:150px;
@@ -130,7 +131,7 @@ img:hover{
         margin-top: 3% !important;
     }
     #linkto{
-        margin-top: 58% !important;
+        margin-top: 56% !important;
         width: 55%;
         width: 160px;
         animation-name: quizpage;
@@ -169,10 +170,14 @@ img:hover{
         background-color: rgba(0, 0, 0, 68%);
     }
     .rounded-pill{
-        width: 94.1%;
+        width: 93.5%;
         border-radius: 17px !important;
         margin-top: 17% !important;
-        backdrop-filter: blur(12.9px);
+        background: rgba(245, 241, 241, 0.06);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(40.9px);
+        -webkit-backdrop-filter: blur(5.9px);
+        border: 1px solid rgba(255, 255, 255, 0.26); 
     }
     .rounded-pill button{
         width: 90.4%;
